@@ -22,7 +22,7 @@ Elasticsearch 知识
 2. ES集群
 
    1). 空集群 
-       ![当前节点](http://ww4.sinaimg.cn/mw690/9147fb05gw1ewaia7w9e9j20ku069aa5.jpg)
+       [![http://ww4.sinaimg.cn/mw690/9147fb05gw1ewaia7w9e9j20ku069aa5.jpg]
        
        可以通过/_cluster/health查看集群状态
    
