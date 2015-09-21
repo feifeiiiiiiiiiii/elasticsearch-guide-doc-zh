@@ -22,7 +22,7 @@ Elasticsearch 知识
 2. ES集群
 
    1). 空集群 
-       ![当前节点](http://ww4.sinaimg.cn/mw690/9147fb05gw1ewaia7w9e9j20ku069aa5.jpg)
+       ![](./images/elas_0201.png =100x100)
        
        可以通过/_cluster/health查看集群状态
    
@@ -38,23 +38,24 @@ Elasticsearch 知识
         }
        ``` 
        当前集群状态为
-       ![](http://ww1.sinaimg.cn/mw690/9147fb05gw1ewaifxqto9j20ku069q35.jpg)
+       
+       ![](./images/elas_0202.png =100x100)
        
    
    3). 增加一个节点,集群状态
        
-       ![](http://ww3.sinaimg.cn/mw690/9147fb05gw1ewaii5lkkpj20ku069t92.jpg)
+       ![](./images/elas_0203.png =100x100)
        
    4). 再增加一个节点,集群状态
-       ![](http://ww4.sinaimg.cn/mw690/9147fb05gw1ewaikgphmoj20ku069q3i.jpg)
+       ![](./images/elas_0204.png =100x100)
 
        修改number_of_replicas为2,集群状态变为:
-       ![](http://ww4.sinaimg.cn/mw690/9147fb05jw1ewaim8r9kxj20ku0693z3.jpg)
+       ![](./images/elas_0205.png =100x100)
        
        通过上面的过程，可以知道，ES可以横向扩展
        
    5). 关闭一个节点,集群状态
-       ![](http://ww1.sinaimg.cn/mw690/9147fb05jw1ewaio9uwrpj20ku069q3c.jpg)
+       ![](./images/elas_0206.png =100x100)
        
        发现ES可以支持自动故障转移，并且重新选举了Primary shard,不会影响服务
        
