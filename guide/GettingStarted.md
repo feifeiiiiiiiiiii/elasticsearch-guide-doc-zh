@@ -22,6 +22,7 @@ Elasticsearch 知识
 2. ES集群
 
    1). 空集群 
+   
        ![](./images/elas_0201.png =100x100)
        
        可以通过/_cluster/health查看集群状态
