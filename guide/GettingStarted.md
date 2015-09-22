@@ -23,7 +23,7 @@ Elasticsearch 知识
 
    1). 空集群 
    
-       ![](./images/elas_0201.png =100x100)
+       [<img width=100 src="images/elas_0201.png"]
        
        可以通过/_cluster/health查看集群状态
    
