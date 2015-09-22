@@ -59,5 +59,36 @@ Elasticsearch 知识
        <img src="images/elas_0206.png">
        
        发现ES可以支持自动故障转移，并且重新选举了Primary shard,不会影响服务
+ 
+ 3. 分布式文档存储
+   
+   1). Routing a Document to a Shard
+       当索引一个文档，它被存储在一个Primary分片上。ES怎么知道文档具体属于哪个Shard上? 创建一个文档，怎样知道该文档应该存储在Shard1还是Shard2上，所有的这一切都不是随机的，毕竟还有获取这些文档，所有的这一切可以被一个简单的公式决定:
+       shard = hash(routing) % number_of_primary_shards (?这也解释了索引shards数量一旦创建就不能被修改)
        
+       tips: **routing** 值是经过hash函数生成的数值
+       
+       所以对文档操作的api(get,index,delete,bulk,update,mget)均支持**routing**参数,这样做的好处就是相同**routing**都存在一个shard上，检索快 (留个疑问为什么快?)
+
+   2). Primary and Replica Shards Interact
+       
+       a. 考虑三个节点的集群有一个索引如下:
+           <img src="images/elas_0401.png">
+       
+       b. 创建、索引、删除文档
+           <img src="images/elas_0402.png">
+           
+           tips: 
+               1. 客户端首先发送create、index、delete请求到节点Node 1上
+               2. 节点根据Document`s _id 确定文档属于 shard 0, 此时该节点转发请求到shard 0对应primary所在的 Node 3上
+               3. Node 3在Primary上执行请求,如果执行成功，该Node会并行的将执行操作的请求转发到Primary对应的Replica上，
+                  所以的Replica node执行成功，Node 3会报告成功指令,保证数据在各个shard上的一致性
+               ![具体看官方文档](https://www.elastic.co/guide/en/elasticsearch/guide/current/distrib-write.html#img-distrib-write)
+               
+        c. 获取文档的过程
+           <img src="images/elas_0403.png">
+        
+        d. 部分更新文档
+           <img src="images/elas_0404.png">
 </pre>
+
