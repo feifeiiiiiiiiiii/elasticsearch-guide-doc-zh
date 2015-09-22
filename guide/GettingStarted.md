@@ -23,7 +23,7 @@ Elasticsearch 知识
 
    1). 空集群 
    
-       [<img src="images/elas_0201.png">]
+       <img src="images/elas_0201.png">
        
        可以通过/_cluster/health查看集群状态
    
@@ -40,23 +40,23 @@ Elasticsearch 知识
        ``` 
        当前集群状态为
        
-       [<img src="images/elas_0202.png">]
+       <img src="images/elas_0202.png">
        
    
    3). 增加一个节点,集群状态
        
-       [<img src="images/elas_0203.png">]
+       <img src="images/elas_0203.png">
        
    4). 再增加一个节点,集群状态
-       [<img src="images/elas_0204.png">]
+       <img src="images/elas_0204.png">
 
        修改number_of_replicas为2,集群状态变为:
-       [<img src="images/elas_0205.png">]
+       <img src="images/elas_0205.png">
        
        通过上面的过程，可以知道，ES可以横向扩展
        
    5). 关闭一个节点,集群状态
-       [<img src="images/elas_0206.png">]
+       <img src="images/elas_0206.png">
        
        发现ES可以支持自动故障转移，并且重新选举了Primary shard,不会影响服务
        
